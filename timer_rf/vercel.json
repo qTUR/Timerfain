@@ -1,0 +1,10 @@
+{
+  "functions": {
+    "api/countdown.tsx": {
+      "runtime": "edge",
+      "memory": 128
+    }
+  }
+}
+
+

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>العد التنازلي في الإيميل</title>
+</head>
+<body style="margin: 0; padding: 20px; font-family: Arial, sans-serif;">
+    <h2>كود الإيميل:</h2>
+    <p>انسخ هذا الكود وضعّه في Outlook (Format Text > HTML):</p>
+    <textarea readonly style="width: 100%; height: 200px; font-family: monospace; padding: 10px;">
+&lt;img src="http://localhost:8080/countdown.svg?t=&lt;!-- سيتم تحديثه تلقائياً --&gt;" 
+     alt="العد التنازلي" 
+     width="1200" 
+     height="500"
+     style="display:block; border:0; max-width:100%; height:auto;" /&gt;
+    </textarea>
+    
+    <h2>معاينة الصورة (تتحدث كل ثانية):</h2>
+    <img id="countdownImg" 
+         src="http://localhost:8080/countdown.svg" 
+         alt="العد التنازلي" 
+         width="1200" 
+         height="500"
+         style="display:block; border:0; max-width:100%; height:auto;" />
+    
+    <script>
+        // تحديث الصورة كل ثانية
+        setInterval(function() {
+            const img = document.getElementById('countdownImg');
+            img.src = 'http://localhost:8080/countdown.svg?t=' + new Date().getTime();
+        }, 1000);
+    </script>
+</body>
+</html>
+

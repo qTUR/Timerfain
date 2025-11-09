@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>العد التنازلي - صورة متحدثة</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            background: #000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        #countdownImage {
+            display: block;
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <img id="countdownImage" 
+         src="http://localhost:8080/countdown.svg" 
+         alt="العد التنازلي" 
+         width="1200" 
+         height="500" />
+    
+    <script>
+        // تحديث الصورة كل ثانية لإجبار المتصفح على إعادة تحميلها
+        function updateImage() {
+            const img = document.getElementById('countdownImage');
+            // إضافة timestamp لمنع الـ cache
+            img.src = 'http://localhost:8080/countdown.svg?t=' + new Date().getTime();
+        }
+        
+        // تحديث فوري ثم كل ثانية
+        updateImage();
+        setInterval(updateImage, 1000);
+    </script>
+</body>
+</html>
+
